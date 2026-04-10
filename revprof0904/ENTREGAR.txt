@@ -1,0 +1,9 @@
+verificar se resultado pesquisa não altera requisitos
+
+nova versão requisitos funcionais
+
+nova versão diagrama de caso de uso
+
+nova versão descrição de caso de uso
+
+
