@@ -1,0 +1,94 @@
+classDiagram
+    Pessoa <|-- Colaborador
+    Colaborador <|-- Administrador
+    Categoria ..> Item
+    SubCategoria ..> Categoria
+    Doacao..Doador
+    Item..Doacao
+    Doacao..Estoque
+    Estoque..Paciente
+    Estoque..Sistema
+    Item..Estoque
+
+    class Pessoa{
+        -genericId
+        +login(userName, password)
+        +recuperarSenha(userName)
+    }    
+
+    class Colaborador{
+        -userName
+        -HashedPassword
+
+        +logOut()
+
+        +gerenciarPerfil()
+        +consultarEstoque()
+        +gerenciarSubCategorias()
+        +genrenciarSolicRetDoacoes()
+        +gerenciarMovimentacaoEstoque()
+
+        
+    }
+
+    class Administrador{
+        +gerenciarUsuarios()
+        +gerarRelatorios()
+        +gerenciarDoadores()
+        +dashboardDeIndicadores()
+        +gerenciarRemedios()
+        +gerenciarAlimentos()
+    }
+
+    class Doacao{
+        -Item item
+        -Int quantidade
+    }
+
+    class Doador{
+        -string nome
+        -string telefone
+        -string email
+        -List~Doacao~doacoes
+        +fazerDoacao(doacao)
+    }
+
+    class Item{
+        -string nome        
+        -tipoItem tipo
+        -Categoria categoria
+        
+    }
+
+    class Categoria{
+        -int id
+        -string nome
+        -string descricao
+        -List ~SubCategoria~ subCategorias
+        -string unidade
+
+        +adicionarSubCategoria(SubCategoria)
+    }
+
+    class SubCategoria{
+        -Categoria categoria
+        -int id
+        -string nome
+        -string descricao
+    }
+
+    class Paciente{
+        List~Item~ Emprestimos
+        +emprestarItem(Item)
+    }
+
+    class Estoque{
+        Item item
+        float quantidade
+        +adcicionarItem()
+        +subtrairItem()
+    }
+
+    class Sistema{
+        +alertarValidadeAlimentos(Estoque)
+    }
