@@ -1,14 +1,15 @@
 classDiagram
     Pessoa <|-- Colaborador
     Colaborador <|-- Administrador
-    Categoria ..> Item
-    SubCategoria ..> Categoria
-    Doacao..Doador
+    SubCategoria ..> Item
+    SubCategoria <.. Categoria
     Item..Doacao
     Doacao..Estoque
-    Estoque..Paciente
-    Estoque..Sistema
     Item..Estoque
+    Origem_Destino..Doacao
+    Origem_Destino<|..Paciente
+    Origem_Destino<|..Doador
+
 
     class Pessoa{
         -genericId
@@ -19,9 +20,7 @@ classDiagram
     class Colaborador{
         -userName
         -HashedPassword
-
         +logOut()
-
         +gerenciarPerfil()
         +consultarEstoque()
         +gerenciarSubCategorias()
@@ -87,8 +86,5 @@ classDiagram
         float quantidade
         +adcicionarItem()
         +subtrairItem()
-    }
-
-    class Sistema{
         +alertarValidadeAlimentos(Estoque)
     }
