@@ -86,6 +86,14 @@ classDiagram
         +emprestarItem(Item)
     }
 
+ 
+
+    class Lote{
+        -Int ID
+        -Estoque estoque
+        -Date data
+    }
+
     class Estoque{
         -Item item
         -float quantidade
@@ -95,8 +103,7 @@ classDiagram
         +alertarValidadeAlimentos(Estoque)
     }
 
-    class Lote{
-        -Int ID
-        -Estoque estoque
-        -Date data
+    class Unidade{
+        -idUnidade
+        -string nome       
     }
