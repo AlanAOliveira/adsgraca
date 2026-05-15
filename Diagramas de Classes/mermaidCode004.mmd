@@ -16,6 +16,7 @@ classDiagram
     SubCategoria..Unidade
     Estoque"1".."0..*"Lote
     Item..Estoque
+    Movimentacao "0..*".. "0..*"Lote
 
     class Pessoa{
         -genericId
@@ -47,6 +48,7 @@ classDiagram
         -Item item
         -Int quantidade
         -Date dataMovimentacao
+        -Boolean tipoMovimentacao
     }
 
     class Doador{
