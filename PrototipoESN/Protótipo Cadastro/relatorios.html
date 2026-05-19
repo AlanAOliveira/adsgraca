@@ -1,0 +1,105 @@
+<!-- =========================================================
+ARQUIVO 7: relatorios.html
+Tela: Relatórios Gerenciais
+========================================================= -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios - ONG ABOS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside class="menu-lateral">
+            <div class="logo"><img src="https://www.abos.org.br/wp-content/uploads/2021/01/Favicon-300x300.png"
+                    alt="Logo ABOS"><span>ONG ABOS</span></div>
+            <p class="subtitulo-logo">Gestão de apoio e doações</p>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="cadastro-usuario.html">Usuários</a></li>
+                <li><a href="cadastro-paciente.html">Pacientes</a></li>
+                <li><a href="cadastro-doador.html">Doadores</a></li>
+                <li><a href="cadastro-doacao.html">Doações</a></li>
+                <li><a href="estoque.html">Estoque</a></li>
+                <li class="ativo"><a href="relatorios.html">Relatórios</a></li>
+                <li><a href="#">Sair</a></li>
+            </ul>
+        </aside>
+        <main class="conteudo">
+            <section class="topo">
+                <div>
+                    <h1>Relatórios Gerenciais</h1>
+                    <p>Consulta de doações recebidas, pacientes ativos, hospedagens e equipamentos emprestados.</p>
+                </div><button class="botao">Gerar relatório</button>
+            </section>
+            <section class="cards">
+                <div class="card">
+                    <div class="icone">📥</div>
+                    <p>Entradas no mês</p>
+                    <h2>64</h2>
+                </div>
+                <div class="card">
+                    <div class="icone">🏠</div>
+                    <p>Pacientes ativos</p>
+                    <h2>37</h2>
+                </div>
+                <div class="card">
+                    <div class="icone">👥</div>
+                    <p>Doadores ativos</p>
+                    <h2>58</h2>
+                </div>
+                <div class="card">
+                    <div class="icone">♿</div>
+                    <p>Equipamentos emprestados</p>
+                    <h2>8</h2>
+                </div>
+            </section>
+            <section class="painel">
+                <h2>Filtros do relatório</h2>
+                <div class="linha-formulario">
+                    <div class="campo"><label>Tipo de relatório</label><select>
+                            <option>Doações recebidas</option>
+                            <option>Pacientes ativos</option>
+                            <option>Hospedagens ativas</option>
+                            <option>Equipamentos emprestados</option>
+                            <option>Movimentação de estoque</option>
+                        </select></div>
+                    <div class="campo"><label>Período</label><input type="month"></div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Tipo</th>
+                            <th>Descrição</th>
+                            <th>Status</th>
+                            <th>Responsável</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10/04/2026</td>
+                            <td>Doação</td>
+                            <td>Entrada de arroz no estoque</td>
+                            <td>Concluído</td>
+                            <td>Maria</td>
+                        </tr>
+                        <tr>
+                            <td>12/04/2026</td>
+                            <td>Paciente</td>
+                            <td>Cadastro de paciente hospedado</td>
+                            <td>Ativo</td>
+                            <td>João</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

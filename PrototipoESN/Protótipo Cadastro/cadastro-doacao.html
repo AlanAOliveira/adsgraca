@@ -1,0 +1,96 @@
+<!-- =========================================================
+ARQUIVO 5: cadastro-doacao.html
+Tela: Registro de Doação de Alimentos
+========================================================= -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Doação - ONG ABOS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside class="menu-lateral">
+            <div class="logo"><img src="https://www.abos.org.br/wp-content/uploads/2021/01/Favicon-300x300.png"
+                    alt="Logo ABOS"><span>ONG ABOS</span></div>
+            <p class="subtitulo-logo">Gestão de apoio e doações</p>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="cadastro-usuario.html">Usuários</a></li>
+                <li><a href="cadastro-paciente.html">Pacientes</a></li>
+                <li><a href="cadastro-doador.html">Doadores</a></li>
+                <li class="ativo"><a href="cadastro-doacao.html">Doações</a></li>
+                <li><a href="estoque.html">Estoque</a></li>
+                <li><a href="relatorios.html">Relatórios</a></li>
+                <li><a href="#">Sair</a></li>
+            </ul>
+        </aside>
+        <main class="conteudo">
+            <section class="topo">
+                <div>
+                    <h1>Registro de Doação</h1>
+                    <p>Entrada de alimentos recebidos pela ABOS e atualização do estoque.</p>
+                </div>
+            </section>
+            <section class="layout-cadastro">
+                <div class="painel formulario-doador">
+                    <h2>Dados da doação</h2>
+                    <form>
+                        <div class="linha-formulario">
+                            <div class="campo"><label>Doador</label><select>
+                                    <option>Selecione um doador</option>
+                                    <option>João da Silva</option>
+                                    <option>Mercado Esperança</option>
+                                </select></div>
+                            <div class="campo"><label>Data de recebimento</label><input type="date"></div>
+                        </div>
+                        <div class="linha-formulario">
+                            <div class="campo"><label>Nome do alimento</label><input type="text"
+                                    placeholder="Ex: Arroz"></div>
+                            <div class="campo"><label>Categoria</label><select>
+                                    <option>Grãos</option>
+                                    <option>Enlatados</option>
+                                    <option>Perecíveis</option>
+                                    <option>Outros</option>
+                                </select></div>
+                        </div>
+                        <div class="linha-formulario">
+                            <div class="campo"><label>Quantidade</label><input type="number" placeholder="Ex: 10"></div>
+                            <div class="campo"><label>Unidade de medida</label><select>
+                                    <option>Kg</option>
+                                    <option>Unidade</option>
+                                    <option>Pacote</option>
+                                    <option>Litro</option>
+                                </select></div>
+                        </div>
+                        <div class="linha-formulario">
+                            <div class="campo"><label>Data de validade</label><input type="date"></div>
+                            <div class="campo"><label>Condição do alimento</label><select>
+                                    <option>Adequado para estoque</option>
+                                    <option>Verificar embalagem</option>
+                                </select></div>
+                        </div>
+                        <div class="campo"><label>Observações</label><textarea rows="4"
+                                placeholder="Informações adicionais sobre a doação"></textarea></div>
+                        <div class="botoes-formulario"><button class="botao-secundario"
+                                type="reset">Limpar</button><button class="botao" type="submit">Registrar
+                                doação</button></div>
+                    </form>
+                </div>
+                <div class="painel painel-ajuda">
+                    <h2>Entrada no estoque</h2>
+                    <div class="alerta cinza">
+                        <h3>Atualização automática</h3>
+                        <p>Após o registro, a quantidade será somada ao estoque disponível para apoio aos pacientes.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

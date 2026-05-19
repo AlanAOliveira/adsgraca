@@ -1,0 +1,87 @@
+<!-- =========================================================
+ARQUIVO 6: estoque.html
+Tela: Consulta de Estoque
+========================================================= -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque - ONG ABOS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside class="menu-lateral">
+            <div class="logo"><img src="https://www.abos.org.br/wp-content/uploads/2021/01/Favicon-300x300.png"
+                    alt="Logo ABOS"><span>ONG ABOS</span></div>
+            <p class="subtitulo-logo">Gestão de apoio e doações</p>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="cadastro-usuario.html">Usuários</a></li>
+                <li><a href="cadastro-paciente.html">Pacientes</a></li>
+                <li><a href="cadastro-doador.html">Doadores</a></li>
+                <li><a href="cadastro-doacao.html">Doações</a></li>
+                <li class="ativo"><a href="estoque.html">Estoque</a></li>
+                <li><a href="relatorios.html">Relatórios</a></li>
+                <li><a href="#">Sair</a></li>
+            </ul>
+        </aside>
+        <main class="conteudo">
+            <section class="topo">
+                <div>
+                    <h1>Consulta de Estoque</h1>
+                    <p>Pesquisa e controle dos alimentos e equipamentos disponíveis para apoio aos pacientes.</p>
+                </div>
+                <div class="acoes-topo"><input class="pesquisa" type="text"
+                        placeholder="Buscar alimento ou equipamento"><button class="botao">Filtrar</button></div>
+            </section>
+            <section class="painel">
+                <h2>Itens cadastrados</h2>
+                <p class="descricao">Lista de alimentos e equipamentos disponíveis ou emprestados.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Tipo</th>
+                            <th>Quantidade</th>
+                            <th>Validade / Situação</th>
+                            <th>Disponibilidade</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Arroz</td>
+                            <td>Alimento</td>
+                            <td>48 kg</td>
+                            <td>12/05/2026</td>
+                            <td>Disponível</td>
+                            <td><span class="status ok">OK</span></td>
+                        </tr>
+                        <tr>
+                            <td>Leite</td>
+                            <td>Alimento</td>
+                            <td>32 un.</td>
+                            <td>30/04/2026</td>
+                            <td>Disponível</td>
+                            <td><span class="status proximo">Próximo</span></td>
+                        </tr>
+                        <tr>
+                            <td>Cadeira de rodas</td>
+                            <td>Equipamento</td>
+                            <td>6 un.</td>
+                            <td>Em uso</td>
+                            <td>2 disponíveis</td>
+                            <td><span class="status ok">Controlado</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
