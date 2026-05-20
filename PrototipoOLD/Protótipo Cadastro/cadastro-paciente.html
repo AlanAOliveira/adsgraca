@@ -36,10 +36,7 @@ Tela: Cadastro de Paciente
           <h1>Cadastro de Paciente</h1>
           <p>Registro de pacientes oncológicos apoiados pela ABOS com hospedagem gratuita, alimentos e equipamentos.</p>
         </div>
-                <div class="acoes-topo">
-                    <input class="pesquisa" type="text" placeholder="Pesquisar paciente">
-                    <button class="botao-secundario" onclick="abrirPopup()">Ver cadastrados</button>
-                </div></section>
+      </section>
       <section class="layout-cadastro">
         <div class="painel formulario-doador">
           <h2>Dados do paciente</h2>
@@ -110,38 +107,6 @@ Tela: Cadastro de Paciente
       </section>
     </main>
   </div>
-
-    <div id="popup-lista" class="popup-fundo">
-        <div class="popup">
-            <div class="popup-topo">
-                <h2>Pacientes cadastrados</h2>
-                <button class="fechar-popup" onclick="fecharPopup()">×</button>
-            </div>
-
-            <table>
-                <thead>
-                    <tr><th>Paciente</th><th>Cidade de origem</th><th>Apoio recebido</th><th>Status</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Maria S.</td><td>Itapetininga/SP</td><td>Hospedagem e alimentos</td><td><span class="status ok">Ativo</span></td></tr>
-<tr><td>José A.</td><td>Tatuí/SP</td><td>Cadeira de rodas</td><td><span class="status proximo">Acompanhando</span></td></tr>
-<tr><td>Ana P.</td><td>Registro/SP</td><td>Hospedagem gratuita</td><td><span class="status ok">Ativo</span></td></tr>
-
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <script>
-        function abrirPopup() {
-            document.getElementById("popup-lista").style.display = "flex";
-        }
-
-        function fecharPopup() {
-            document.getElementById("popup-lista").style.display = "none";
-        }
-    </script>
-
 </body>
 
 </html>

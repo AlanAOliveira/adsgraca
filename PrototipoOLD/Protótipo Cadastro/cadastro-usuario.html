@@ -36,10 +36,6 @@ Tela: Cadastro de Usuários Internos
                     <h1>Cadastro de Usuário</h1>
                     <p>Controle de acesso para administradores e voluntários da instituição.</p>
                 </div>
-                <div class="acoes-topo">
-                    <input class="pesquisa" type="text" placeholder="Pesquisar usuário">
-                    <button class="botao-secundario" onclick="abrirPopup()">Ver cadastrados</button>
-                </div>
             </section>
             <section class="layout-cadastro">
                 <div class="painel formulario-doador">
@@ -84,102 +80,6 @@ Tela: Cadastro de Usuários Internos
             </section>
         </main>
     </div>
-
-    <div id="popup-lista" class="popup-fundo">
-        <div class="popup">
-            <div class="popup-topo">
-                <h2>Usuários cadastrados</h2>
-                <button class="fechar-popup" onclick="fecharPopup()">×</button>
-            </div>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>E-mail</th>
-                        <th>Perfil</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Maria Oliveira</td>
-                        <td>maria@abos.org.br</td>
-                        <td>Administrador</td>
-                        <td><span class="status ok">Ativo</span></td>
-                    </tr>
-                    <tr>
-                        <td>João Santos</td>
-                        <td>joao@abos.org.br</td>
-                        <td>Voluntário</td>
-                        <td><span class="status ok">Ativo</span></td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <script>
-        function abrirPopup() {
-            document.getElementById("popup-lista").style.display = "flex";
-        }
-
-        function fecharPopup() {
-            document.getElementById("popup-lista").style.display = "none";
-        }
-    </script>
-
-    <div id="popup-lista" class="popup-fundo">
-        <div class="popup">
-            <div class="popup-topo">
-                <h2>Usuários cadastrados</h2>
-                <button class="fechar-popup" onclick="fecharPopup()">×</button>
-            </div>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>E-mail</th>
-                        <th>Perfil</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Maria Oliveira</td>
-                        <td>maria@abos.org.br</td>
-                        <td>Administrador</td>
-                        <td><span class="status ok">Ativo</span></td>
-                    </tr>
-                    <tr>
-                        <td>João Pereira</td>
-                        <td>joao@abos.org.br</td>
-                        <td>Voluntário</td>
-                        <td><span class="status ok">Ativo</span></td>
-                    </tr>
-                    <tr>
-                        <td>Ana Souza</td>
-                        <td>ana@abos.org.br</td>
-                        <td>Voluntário</td>
-                        <td><span class="status critico">Inativo</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <script>
-        function abrirPopup() {
-            document.getElementById("popup-lista").style.display = "flex";
-        }
-
-        function fecharPopup() {
-            document.getElementById("popup-lista").style.display = "none";
-        }
-    </script>
-
 </body>
 
 </html>

@@ -1,0 +1,141 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Protótipo ONG_ABOS</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="menu-lateral">
+      <div class="logo">
+        <img src="https://www.abos.org.br/wp-content/uploads/2021/01/Favicon-300x300.png" alt="Logo ABOS" style="width:40px; vertical-align:middle; margin-right:10px;">ABOS   </div>
+      <div class="subtitulo-logo">Gestão de doações de alimentos</div>
+
+      <ul>
+        <li class="ativo">Dashboard</li>
+        <li><a href="Protótipo Cadastro/cadastro-doacao.html">Doações</a></li>
+        <li><a href="Protótipo Cadastro/estoque.html">Estoque</a></li>
+        <li><a href="#">Distribuições</a></li>
+        <li><a href="#">Doadores</a></li>
+        <li><a href="#">Relatórios</a></li>
+        <li><a href="#">Sair</a></li>
+      </ul>
+    </aside>
+
+    <main class="conteudo">
+      <section class="topo">
+        <div>
+          <h1>Painel inicial de controle</h1>
+          <p>Área administrativa para colaboradores e voluntários da ABOS.</p>
+        </div>
+
+        <div class="acoes-topo">
+          <input class="pesquisa" type="text" placeholder="Pesquisar alimento ou doador" />
+          <button class="botao">+ Nova doação</button>
+        </div>
+      </section>
+
+      <section class="cards">
+        <div class="card">
+          <div class="icone">❤️</div>
+          <p>Doações recebidas</p>
+          <h2>124</h2>
+        </div>
+
+        <div class="card">
+          <div class="icone">📦</div>
+          <p>Itens em estoque</p>
+          <h2>386</h2>
+        </div>
+
+        <div class="card">
+          <div class="icone">⏰</div>
+          <p>Próximos do vencimento</p>
+          <h2>12</h2>
+        </div>
+
+        <div class="card">
+          <div class="icone">👥</div>
+          <p>Doadores ativos</p>
+          <h2>58</h2>
+        </div>
+      </section>
+
+      <section class="area-baixo">
+        <div class="painel">
+          <h2>Consulta rápida de estoque</h2>
+          <p class="descricao">Controle de alimentos cadastrados, quantidade disponível e validade.</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Alimento</th>
+                <th>Categoria</th>
+                <th>Quantidade</th>
+                <th>Validade</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Arroz</td>
+                <td>Grãos</td>
+                <td>48 kg</td>
+                <td>12/05/2026</td>
+                <td><span class="status ok">OK</span></td>
+              </tr>
+              <tr>
+                <td>Leite</td>
+                <td>Perecível</td>
+                <td>32 un.</td>
+                <td>30/04/2026</td>
+                <td><span class="status proximo">Próximo</span></td>
+              </tr>
+              <tr>
+                <td>Feijão</td>
+                <td>Grãos</td>
+                <td>25 kg</td>
+                <td>18/06/2026</td>
+                <td><span class="status ok">OK</span></td>
+              </tr>
+              <tr>
+                <td>Molho de tomate</td>
+                <td>Enlatados</td>
+                <td>18 un.</td>
+                <td>28/04/2026</td>
+                <td><span class="status critico">Crítico</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="painel">
+          <h2>Alertas</h2>
+          <p class="descricao">Pendências importantes do sistema.</p>
+
+          <div class="alerta amarelo">
+            <h3>Validade próxima</h3>
+            <p>12 alimentos devem ser distribuídos com prioridade.</p>
+          </div>
+
+          <div class="alerta cinza">
+            <h3>Pré-cadastros recebidos</h3>
+            <p>4 doadores aguardam confirmação de entrega.</p>
+          </div>
+
+          <div class="alerta vermelho">
+            <h3>Estoque baixo</h3>
+            <p>Leite e óleo estão abaixo do volume recomendado.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+
+

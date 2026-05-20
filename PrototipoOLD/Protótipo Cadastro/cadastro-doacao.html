@@ -35,10 +35,7 @@ Tela: Registro de Doação de Alimentos
                     <h1>Registro de Doação</h1>
                     <p>Entrada de alimentos recebidos pela ABOS e atualização do estoque.</p>
                 </div>
-                <div class="acoes-topo">
-                    <input class="pesquisa" type="text" placeholder="Pesquisar doação ou doador">
-                    <button class="botao-secundario" onclick="abrirPopup()">Ver cadastrados</button>
-                </div></section>
+            </section>
             <section class="layout-cadastro">
                 <div class="painel formulario-doador">
                     <h2>Dados da doação</h2>
@@ -94,37 +91,6 @@ Tela: Registro de Doação de Alimentos
             </section>
         </main>
     </div>
-
-    <div id="popup-lista" class="popup-fundo">
-        <div class="popup">
-            <div class="popup-topo">
-                <h2>Doações cadastradas</h2>
-                <button class="fechar-popup" onclick="fecharPopup()">×</button>
-            </div>
-
-            <table>
-                <thead>
-                    <tr><th>Data</th><th>Doador</th><th>Item</th><th>Quantidade</th><th>Status</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>02/04/2026</td><td>João da Silva</td><td>Arroz</td><td>20 kg</td><td><span class="status ok">Registrado</span></td></tr>
-<tr><td>08/04/2026</td><td>Mercado Esperança</td><td>Leite</td><td>32 un.</td><td><span class="status ok">Registrado</span></td></tr>
-
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <script>
-        function abrirPopup() {
-            document.getElementById("popup-lista").style.display = "flex";
-        }
-
-        function fecharPopup() {
-            document.getElementById("popup-lista").style.display = "none";
-        }
-    </script>
-
 </body>
 
 </html>

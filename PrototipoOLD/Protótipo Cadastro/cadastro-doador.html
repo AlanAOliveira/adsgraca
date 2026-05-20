@@ -35,10 +35,7 @@ Tela: Cadastro de Doador
                     <h1>Cadastro de Doador</h1>
                     <p>Registro de pessoas físicas e empresas que realizam doações para a ABOS.</p>
                 </div>
-                <div class="acoes-topo">
-                    <input class="pesquisa" type="text" placeholder="Pesquisar doador">
-                    <button class="botao-secundario" onclick="abrirPopup()">Ver cadastrados</button>
-                </div></section>
+            </section>
             <section class="layout-cadastro">
                 <div class="painel formulario-doador">
                     <h2>Dados do doador</h2>
@@ -85,37 +82,6 @@ Tela: Cadastro de Doador
             </section>
         </main>
     </div>
-
-    <div id="popup-lista" class="popup-fundo">
-        <div class="popup">
-            <div class="popup-topo">
-                <h2>Doadores cadastrados</h2>
-                <button class="fechar-popup" onclick="fecharPopup()">×</button>
-            </div>
-
-            <table>
-                <thead>
-                    <tr><th>Doador</th><th>Tipo</th><th>Telefone</th><th>Status</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>João da Silva</td><td>Pessoa Física</td><td>(15) 99999-9999</td><td><span class="status ok">Ativo</span></td></tr>
-<tr><td>Mercado Esperança</td><td>Empresa</td><td>(15) 3333-2222</td><td><span class="status ok">Ativo</span></td></tr>
-
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <script>
-        function abrirPopup() {
-            document.getElementById("popup-lista").style.display = "flex";
-        }
-
-        function fecharPopup() {
-            document.getElementById("popup-lista").style.display = "none";
-        }
-    </script>
-
 </body>
 
 </html>

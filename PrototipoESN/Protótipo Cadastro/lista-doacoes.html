@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Entradas no Mês - ONG ABOS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside class="menu-lateral">
+            <div class="logo"><img
+                    src="https://www.abos.org.br/wp-content/uploads/2021/01/Favicon-300x300.png"><span>ONG ABOS</span>
+            </div>
+            <p class="subtitulo-logo">Gestão de apoio e doações</p>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="cadastro-usuario.html">Usuários</a></li>
+                <li><a href="cadastro-paciente.html">Pacientes</a></li>
+                <li><a href="cadastro-doador.html">Doadores</a></li>
+                <li><a href="cadastro-doacao.html">Doações</a></li>
+                <li><a href="estoque.html">Estoque</a></li>
+                <li><a href="relatorios.html">Relatórios</a></li>
+                <li><a href="#">Sair</a></li>
+            </ul>
+        </aside>
+
+        <main class="conteudo">
+            <section class="topo">
+                <div>
+                    <h1>Entradas no Mês</h1>
+                    <p>Doações recebidas e registradas no estoque.</p>
+                </div>
+                <div class="acoes-topo">
+                    <input class="pesquisa" type="text" placeholder="Pesquisar doação">
+                    <button class="botao-secundario">Pesquisar</button>
+                </div></section>
+
+            <section class="painel">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Doador</th>
+                            <th>Item</th>
+                            <th>Quantidade</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>02/04/2026</td>
+                            <td>João da Silva</td>
+                            <td>Arroz</td>
+                            <td>20 kg</td>
+                            <td><span class="status ok">Registrado</span></td>
+                        </tr>
+                        <tr>
+                            <td>08/04/2026</td>
+                            <td>Mercado Esperança</td>
+                            <td>Leite</td>
+                            <td>32 un.</td>
+                            <td><span class="status ok">Registrado</span></td>
+                        </tr>
+                        <tr>
+                            <td>15/04/2026</td>
+                            <td>Empresa Solidária</td>
+                            <td>Feijão</td>
+                            <td>25 kg</td>
+                            <td><span class="status ok">Registrado</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
