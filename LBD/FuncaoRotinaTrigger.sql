@@ -14,7 +14,7 @@ BEGIN
     -- trocar se a devolução esta atrasada com base na data real ou na data do sistema
     IF v_data_real IS NULL THEN
         IF SYSDATE > v_data_planejada THEN
-            RETURN 'S';
+            RETURN 'Sim com base na data do sistema';
         ELSE
             RETURN 'N';
         END IF;
@@ -22,7 +22,7 @@ BEGIN
 
     -- Se já devolveu, verifica se foi após o planejado
     IF v_data_real > v_data_planejada THEN
-        RETURN 'S';
+        RETURN 'Sim com base na data real';
     ELSE
         RETURN 'N';
     END IF;
