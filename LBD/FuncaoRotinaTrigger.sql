@@ -145,6 +145,64 @@ BEGIN
     END IF;
 END;
 
+
+CREATE OR REPLACE PROCEDURE prc_registrar_doacao_abos (
+    p_id_doacao           IN NUMBER,
+    p_tipo                IN VARCHAR2,
+    p_quantidade          IN NUMBER,
+    p_data_recebimento    IN DATE,
+    p_descricao           IN VARCHAR2,
+    p_fk_pessoa_idpessoas IN NUMBER,
+    p_id_doador           IN NUMBER
+) IS
+    v_count NUMBER;
+BEGIN
+    IF p_quantidade <= 0 THEN
+        RAISE_APPLICATION_ERROR(-20002, 'Quantidade deve ser maior que zero.');
+    END IF;
+
+    -- Valida doador
+    SELECT COUNT(*) INTO v_count
+    FROM tb_doador_abos
+    WHERE id_doador = p_id_doador;
+
+    IF v_count = 0 THEN
+        RAISE_APPLICATION_ERROR(-20003, 'Doador não encontrado.');
+    END IF;
+
+    -- Insere doação
+    INSERT INTO tb_doacao_abos (
+        id_doacao, tipo, quantidade, data_recebimento, descricao, fk_pessoa_idpessoas
+    ) VALUES (
+        p_id_doacao, p_tipo, p_quantidade, p_data_recebimento, p_descricao, p_fk_pessoa_idpessoas
+    );
+
+    -- Relaciona doador à doação
+    INSERT INTO tb_realiza_abos (fk_doador_id_doador, fk_doacao_id_doacao)
+    VALUES (p_id_doador, p_id_doacao);
+
+    COMMIT;
+    DBMS_OUTPUT.PUT_LINE('Doação registrada com sucesso! ID: ' || p_id_doacao);
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Erro ao registrar doação: ' || SQLERRM);
+        ROLLBACK;
+END;
+
+-- Teste: registrar doação válida
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('--- TESTE 1: Doação válida ---');
+    prc_registrar_doacao_abos(
+        p_id_doacao           => 1001,
+        p_tipo                => 'Alimento',
+        p_quantidade          => 50,
+        p_data_recebimento    => SYSDATE,
+        p_descricao           => 'Cestas básicas',
+        p_fk_pessoa_idpessoas => 2,
+        p_id_doador           => 100
+    );
+END;
+
 -- Teste: inserir pessoa com CPF inválido
 INSERT INTO tb_pessoa_abos (nome, cpf, sexo, administrador)
 VALUES ('João', '00000000000', 'M', 'N');
