@@ -23,7 +23,7 @@ Tela: Registro de Doação de Alimentos
                 <li><a href="cadastro-usuario.html">Usuários</a></li>
                 <li><a href="cadastro-paciente.html">Pacientes</a></li>
                 <li><a href="cadastro-doador.html">Doadores</a></li>
-                <li class="ativo"><a href="cadastro-doacao.html">Doações</a></li>
+                <li class="ativo"><a href="lista-doacoes.html">Doações</a></li>
                 <li><a href="estoque.html">Estoque</a></li>
                 <li><a href="relatorios.html">Relatórios</a></li>
                 <li><a href="#">Sair</a></li>
@@ -38,7 +38,45 @@ Tela: Registro de Doação de Alimentos
                 <div class="acoes-topo">
                     <input class="pesquisa" type="text" placeholder="Pesquisar doação ou doador">
                     <button class="botao-secundario" onclick="abrirPopup()">Ver cadastrados</button>
-                </div></section>
+                </div>
+            </section>
+            <div id="popup-lista" class="popup-fundo">
+                <div class="popup">
+                    <div class="popup-topo">
+                        <h2>Doações cadastradas</h2>
+                        <button class="fechar-popup" onclick="fecharPopup()">×</button>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Doador</th>
+                                <th>Item</th>
+                                <th>Quantidade</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>02/04/2026</td>
+                                <td>João da Silva</td>
+                                <td>Arroz</td>
+                                <td>20 kg</td>
+                                <td><span class="status ok">Registrado</span></td>
+                            </tr>
+                            <tr>
+                                <td>08/04/2026</td>
+                                <td>Mercado Esperança</td>
+                                <td>Leite</td>
+                                <td>32 un.</td>
+                                <td><span class="status ok">Registrado</span></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <section class="layout-cadastro">
                 <div class="painel formulario-doador">
                     <h2>Dados da doação</h2>
@@ -95,25 +133,7 @@ Tela: Registro de Doação de Alimentos
         </main>
     </div>
 
-    <div id="popup-lista" class="popup-fundo">
-        <div class="popup">
-            <div class="popup-topo">
-                <h2>Doações cadastradas</h2>
-                <button class="fechar-popup" onclick="fecharPopup()">×</button>
-            </div>
 
-            <table>
-                <thead>
-                    <tr><th>Data</th><th>Doador</th><th>Item</th><th>Quantidade</th><th>Status</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>02/04/2026</td><td>João da Silva</td><td>Arroz</td><td>20 kg</td><td><span class="status ok">Registrado</span></td></tr>
-<tr><td>08/04/2026</td><td>Mercado Esperança</td><td>Leite</td><td>32 un.</td><td><span class="status ok">Registrado</span></td></tr>
-
-                </tbody>
-            </table>
-        </div>
-    </div>
 
     <script>
         function abrirPopup() {
