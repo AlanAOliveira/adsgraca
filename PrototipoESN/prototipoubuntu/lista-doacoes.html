@@ -153,33 +153,39 @@
             if (isNaN(data)) return '-';
             return data.toLocaleDateString('pt-BR');
         }
-
         // Render donations into the table
         function renderizarDoacoes(lista) {
             const tbody = document.getElementById('tabela-doacoes');
 
             if (!lista || lista.length === 0) {
                 tbody.innerHTML = `
-                <tr>
-                    <td colspan="5" style="text-align: center;">Nenhuma doação encontrada</td>
-                </tr>
-            `;
+            <tr>
+                <td colspan="5" style="text-align: center;">Nenhuma doação encontrada</td>
+            </tr>
+        `;
                 return;
             }
 
             tbody.innerHTML = lista.map(d => {
-                const item = normalizarDoacao(d);
+                const data = d.data_recebimento || d.criado_em;
+                const doador = d.nome_doador || d.nome || 'Doador não informado';
+                const item = d.tipo || d.alimento || '-';
+                const qtd = d.quantidade || 0;
+                const unidade = d.unidade || '';
+                const status = d.status || 'Registrado';
+
                 return `
             <tr>
-                <td>${formatarData(item.data)}</td>
-                <td>${item.nome}</td>
-                <td>${item.alimento}</td>
-                <td>${item.quantidade} ${item.unidade}</td>
-                <td><span class="status ok">${item.status}</span></td>
+                <td>${formatarData(data)}</td>
+                <td>${doador}</td>
+                <td>${item}</td>
+                <td>${qtd} ${unidade}</td>
+                <td><span class="status ok">${status}</span></td>
             </tr>
-            `;
+        `;
             }).join('');
         }
+
 
         // Filter donations by search term
         function filtrarDoacoes() {
