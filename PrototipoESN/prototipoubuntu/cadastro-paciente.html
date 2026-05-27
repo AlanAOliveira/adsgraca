@@ -1,0 +1,147 @@
+<!-- =========================================================
+ARQUIVO 3: cadastro-paciente.html
+Tela: Cadastro de Paciente
+========================================================= -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Paciente - ONG ABOS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <aside class="menu-lateral">
+      <div class="logo"><img src="https://www.abos.org.br/wp-content/uploads/2021/01/Favicon-300x300.png"
+          alt="Logo ABOS"><span>ONG ABOS</span></div>
+      <p class="subtitulo-logo">Gestão de apoio e doações</p>
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="cadastro-usuario.html">Usuários</a></li>
+        <li class="ativo"><a href="cadastro-paciente.html">Pacientes</a></li>
+        <li><a href="cadastro-doador.html">Doadores</a></li>
+        <li><a href="cadastro-doacao.html">Doações</a></li>
+        <li><a href="estoque.html">Estoque</a></li>
+        <li><a href="relatorios.html">Relatórios</a></li>
+        <li><a href="#">Sair</a></li>
+      </ul>
+    </aside>
+
+    <main class="conteudo">
+      <section class="topo">
+        <div>
+          <h1>Cadastro de Paciente</h1>
+          <p>Registro de pacientes oncológicos apoiados pela ABOS com hospedagem gratuita, alimentos e equipamentos.</p>
+        </div>
+                <div class="acoes-topo">
+                    <input class="pesquisa" type="text" placeholder="Pesquisar paciente">
+                    <button class="botao-secundario" onclick="abrirPopup()">Ver cadastrados</button>
+                </div></section>
+      <section class="layout-cadastro">
+        <div class="painel formulario-doador">
+          <h2>Dados do paciente</h2>
+          <p class="descricao">A ABOS não realiza atendimento médico. O sistema registra apenas o apoio social oferecido
+            ao paciente durante o tratamento.</p>
+          <form>
+            <div class="linha-formulario">
+              <div class="campo"><label>Nome do paciente</label><input type="text" placeholder="Ex: Maria Aparecida">
+              </div>
+              <div class="campo"><label>CPF</label><input type="text" placeholder="Informe o CPF"></div>
+            </div>
+            <div class="linha-formulario">
+              <div class="campo"><label>Telefone</label><input type="text" placeholder="(15) 99999-9999"></div>
+              <div class="campo"><label>Cidade de origem</label><input type="text" placeholder="Ex: Tatuí/SP"></div>
+            </div>
+            <div class="linha-formulario">
+              <div class="campo"><label>Hospital / local de tratamento</label><input type="text"
+                  placeholder="Ex: Hospital em Sorocaba"></div>
+              <div class="campo"><label>Status do paciente</label><select>
+                  <option>Ativo</option>
+                  <option>Em acompanhamento</option>
+                  <option>Inativo</option>
+                </select></div>
+            </div>
+            <div class="linha-formulario">
+              <div class="campo"><label>Tipo de apoio</label><select>
+                  <option>Hospedagem gratuita</option>
+                  <option>Doação de alimentos</option>
+                  <option>Empréstimo de equipamento</option>
+                  <option>Hospedagem + alimentos</option>
+                  <option>Hospedagem + equipamento</option>
+                </select></div>
+              <div class="campo"><label>Data de entrada</label><input type="date"></div>
+            </div>
+            <div class="linha-formulario">
+              <div class="campo"><label>Acompanhante</label><input type="text"
+                  placeholder="Nome do acompanhante, se houver"></div>
+              <div class="campo"><label>Equipamento emprestado</label><select>
+                  <option>Nenhum</option>
+                  <option>Cadeira de rodas</option>
+                  <option>Cadeira de banho</option>
+                  <option>Cama hospitalar</option>
+                  <option>Muletas</option>
+                  <option>Bengala</option>
+                </select></div>
+            </div>
+            <div class="campo"><label>Observações</label><textarea rows="4"
+                placeholder="Informações sobre hospedagem, apoio alimentar ou equipamento emprestado"></textarea></div>
+            <div class="botoes-formulario"><button class="botao-secundario" type="reset">Limpar</button><button
+                class="botao" type="submit">Salvar paciente</button></div>
+          </form>
+        </div>
+        <div class="painel painel-ajuda">
+          <h2>Finalidade</h2>
+          <div class="alerta cinza">
+            <h3>Apoio social</h3>
+            <p>Controle dos pacientes ativos que recebem hospedagem gratuita, alimentos ou equipamentos.</p>
+          </div>
+          <div class="alerta amarelo">
+            <h3>Não é atendimento médico</h3>
+            <p>O sistema não registra consultas, exames ou procedimentos médicos.</p>
+          </div>
+          <div class="alerta vermelho">
+            <h3>Dados sensíveis</h3>
+            <p>As informações devem ser protegidas e acessadas apenas por usuários autorizados.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+    <div id="popup-lista" class="popup-fundo">
+        <div class="popup">
+            <div class="popup-topo">
+                <h2>Pacientes cadastrados</h2>
+                <button class="fechar-popup" onclick="fecharPopup()">×</button>
+            </div>
+
+            <table>
+                <thead>
+                    <tr><th>Paciente</th><th>Cidade de origem</th><th>Apoio recebido</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Maria S.</td><td>Itapetininga/SP</td><td>Hospedagem e alimentos</td><td><span class="status ok">Ativo</span></td></tr>
+<tr><td>José A.</td><td>Tatuí/SP</td><td>Cadeira de rodas</td><td><span class="status proximo">Acompanhando</span></td></tr>
+<tr><td>Ana P.</td><td>Registro/SP</td><td>Hospedagem gratuita</td><td><span class="status ok">Ativo</span></td></tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function abrirPopup() {
+            document.getElementById("popup-lista").style.display = "flex";
+        }
+
+        function fecharPopup() {
+            document.getElementById("popup-lista").style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>

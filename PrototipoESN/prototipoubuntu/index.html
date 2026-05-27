@@ -1,0 +1,132 @@
+<!-- =========================================================
+ARQUIVO 1: index.html
+Tela: Dashboard / Tela Principal
+========================================================= -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - ONG ABOS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <aside class="menu-lateral">
+      <div class="logo">
+        <img src="https://www.abos.org.br/wp-content/uploads/2021/01/Favicon-300x300.png" alt="Logo ABOS">
+        <span>ONG ABOS</span>
+      </div>
+      <p class="subtitulo-logo">Gestão de apoio e doações</p>
+      <ul>
+        <li class="ativo"><a href="index.html">Dashboard</a></li>
+        <li><a href="cadastro-usuario.html">Usuários</a></li>
+        <li><a href="cadastro-paciente.html">Pacientes</a></li>
+        <li><a href="cadastro-doador.html">Doadores</a></li>
+        <li><a href="lista-doacoes.html">Doações</a></li>
+        <li><a href="estoque.html">Estoque</a></li>
+        <li><a href="relatorios.html">Relatórios</a></li>
+        <li><a href="#">Sair</a></li>
+      </ul>
+    </aside>
+
+    <main class="conteudo">
+      <section class="topo">
+        <div>
+          <h1>Painel inicial</h1>
+          <p>Resumo de pacientes ativos, hospedagens, doações, estoque e equipamentos emprestados pela ABOS.</p>
+        </div>
+        <div class="acoes-topo">
+          <input class="pesquisa" type="text" placeholder="Pesquisar paciente, doador ou alimento">
+          <button class="botao">+ Novo paciente</button>
+        </div>
+      </section>
+
+      <section class="cards">
+        <div class="card">
+          <div class="icone">📥</div>
+          <p>Entradas no mês</p>
+          <h2>64</h2>
+        </div>
+        <div class="card">
+          <div class="icone">🏠</div>
+          <p>Pacientes ativos</p>
+          <h2>37</h2>
+        </div>
+        <div class="card">
+          <div class="icone">👥</div>
+          <p>Doadores ativos</p>
+          <h2>58</h2>
+        </div>
+        <div class="card">
+          <div class="icone">♿</div>
+          <p>Equipamentos emprestados</p>
+          <h2>8</h2>
+        </div>
+      </section>
+
+      <section class="area-baixo">
+        <div class="painel">
+          <h2>Pacientes ativos e tipo de apoio</h2>
+          <p class="descricao">Acompanhamento dos pacientes oncológicos de outras cidades apoiados pela instituição.</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Paciente</th>
+                <th>Cidade de origem</th>
+                <th>Apoio recebido</th>
+                <th>Entrada</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Maria S.</td>
+                <td>Itapetininga/SP</td>
+                <td>Hospedagem e alimentos</td>
+                <td>10/04/2026</td>
+                <td><span class="status ok">Ativo</span></td>
+              </tr>
+              <tr>
+                <td>José A.</td>
+                <td>Tatuí/SP</td>
+                <td>Cadeira de rodas</td>
+                <td>12/04/2026</td>
+                <td><span class="status proximo">Acompanhando</span></td>
+              </tr>
+              <tr>
+                <td>Ana P.</td>
+                <td>Registro/SP</td>
+                <td>Hospedagem gratuita</td>
+                <td>15/04/2026</td>
+                <td><span class="status ok">Ativo</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="painel">
+          <h2>Alertas</h2>
+          <p class="descricao">Pendências importantes do sistema.</p>
+          <div class="alerta amarelo">
+            <h3>Hospedagens ativas</h3>
+            <p>18 pacientes estão hospedados gratuitamente durante o tratamento.</p>
+          </div>
+          <div class="alerta cinza">
+            <h3>Equipamentos emprestados</h3>
+            <p>8 equipamentos estão vinculados a pacientes ativos.</p>
+          </div>
+          <div class="alerta vermelho">
+            <h3>Estoque baixo</h3>
+            <p>Leite e óleo estão abaixo do volume recomendado para apoio alimentar.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>
