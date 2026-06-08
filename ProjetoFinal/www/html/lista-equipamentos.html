@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Equipamentos Emprestados - ONG ABOS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside class="menu-lateral">
+            <div class="logo"><img
+                    src="https://www.abos.org.br/wp-content/uploads/2021/01/Favicon-300x300.png"><span>ONG ABOS</span>
+            </div>
+            <p class="subtitulo-logo">Gestão de apoio e doações</p>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="cadastro-usuario.html">Usuários</a></li>
+                <li><a href="cadastro-paciente.html">Pacientes</a></li>
+                <li><a href="cadastro-doador.html">Doadores</a></li>
+                <li><a href="cadastro-doacao.html">Doações</a></li>
+                <li><a href="estoque.html">Estoque</a></li>
+                <li><a href="relatorios.html">Relatórios</a></li>
+                <li><a href="#">Sair</a></li>
+            </ul>
+        </aside>
+
+        <main class="conteudo">
+            <section class="topo">
+                <div>
+                    <h1>Equipamentos Emprestados</h1>
+                    <p>Equipamentos vinculados a pacientes ativos.</p>
+                </div>
+                <div class="acoes-topo">
+                    <input class="pesquisa" type="text" placeholder="Pesquisar equipamento ou paciente">
+                    <button class="botao-secundario">Pesquisar</button>
+                </div></section>
+
+            <section class="painel">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Equipamento</th>
+                            <th>Paciente</th>
+                            <th>Data do empréstimo</th>
+                            <th>Previsão de devolução</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cadeira de rodas</td>
+                            <td>José A.</td>
+                            <td>12/04/2026</td>
+                            <td>12/06/2026</td>
+                            <td><span class="status proximo">Emprestado</span></td>
+                        </tr>
+                        <tr>
+                            <td>Cadeira de banho</td>
+                            <td>Maria S.</td>
+                            <td>15/04/2026</td>
+                            <td>15/06/2026</td>
+                            <td><span class="status proximo">Emprestado</span></td>
+                        </tr>
+                        <tr>
+                            <td>Muletas</td>
+                            <td>Ana P.</td>
+                            <td>18/04/2026</td>
+                            <td>18/05/2026</td>
+                            <td><span class="status proximo">Emprestado</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

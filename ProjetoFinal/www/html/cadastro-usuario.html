@@ -1,0 +1,185 @@
+<!-- =========================================================
+ARQUIVO 2: cadastro-usuario.html
+Tela: Cadastro de Usuários Internos
+========================================================= -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário - ONG ABOS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside class="menu-lateral">
+            <div class="logo"><img src="https://www.abos.org.br/wp-content/uploads/2021/01/Favicon-300x300.png"
+                    alt="Logo ABOS"><span>ONG ABOS</span></div>
+            <p class="subtitulo-logo">Gestão de apoio e doações</p>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li class="ativo"><a href="cadastro-usuario.html">Usuários</a></li>
+                <li><a href="cadastro-paciente.html">Pacientes</a></li>
+                <li><a href="cadastro-doador.html">Doadores</a></li>
+                <li><a href="cadastro-doacao.html">Doações</a></li>
+                <li><a href="estoque.html">Estoque</a></li>
+                <li><a href="relatorios.html">Relatórios</a></li>
+                <li><a href="#">Sair</a></li>
+            </ul>
+        </aside>
+
+        <main class="conteudo">
+            <section class="topo">
+                <div>
+                    <h1>Cadastro de Usuário</h1>
+                    <p>Controle de acesso para administradores e voluntários da instituição.</p>
+                </div>
+                <div class="acoes-topo">
+                    <input class="pesquisa" type="text" placeholder="Pesquisar usuário">
+                    <button class="botao-secundario" onclick="abrirPopup()">Ver cadastrados</button>
+                </div>
+            </section>
+            <section class="layout-cadastro">
+                <div class="painel formulario-doador">
+                    <h2>Dados do usuário</h2>
+                    <p class="descricao">Cadastre usuários internos que terão acesso administrativo ao sistema.</p>
+                    <form>
+                        <div class="linha-formulario">
+                            <div class="campo"><label>Nome completo</label><input type="text"
+                                    placeholder="Ex: Maria Oliveira"></div>
+                            <div class="campo"><label>E-mail</label><input type="email"
+                                    placeholder="usuario@abos.org.br"></div>
+                        </div>
+                        <div class="linha-formulario">
+                            <div class="campo"><label>Telefone</label><input type="text" placeholder="(15) 99999-9999">
+                            </div>
+                            <div class="campo"><label>Perfil de acesso</label><select>
+                                    <option>Administrador</option>
+                                    <option>Voluntário</option>
+                                </select></div>
+                        </div>
+                        <div class="linha-formulario">
+                            <div class="campo"><label>Login</label><input type="text" placeholder="usuario.login"></div>
+                            <div class="campo"><label>Senha</label><input type="password"
+                                    placeholder="Digite uma senha"></div>
+                        </div>
+                        <div class="botoes-formulario"><button class="botao-secundario"
+                                type="reset">Limpar</button><button class="botao" type="submit">Salvar usuário</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="painel painel-ajuda">
+                    <h2>Perfis</h2>
+                    <div class="alerta cinza">
+                        <h3>Administrador</h3>
+                        <p>Pode cadastrar, alterar, excluir e consultar informações.</p>
+                    </div>
+                    <div class="alerta amarelo">
+                        <h3>Voluntário</h3>
+                        <p>Pode registrar doações, consultar estoque e acompanhar pacientes conforme permissão.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="popup-lista" class="popup-fundo">
+        <div class="popup">
+            <div class="popup-topo">
+                <h2>Usuários cadastrados</h2>
+                <button class="fechar-popup" onclick="fecharPopup()">×</button>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                        <th>Perfil</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Maria Oliveira</td>
+                        <td>maria@abos.org.br</td>
+                        <td>Administrador</td>
+                        <td><span class="status ok">Ativo</span></td>
+                    </tr>
+                    <tr>
+                        <td>João Santos</td>
+                        <td>joao@abos.org.br</td>
+                        <td>Voluntário</td>
+                        <td><span class="status ok">Ativo</span></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function abrirPopup() {
+            document.getElementById("popup-lista").style.display = "flex";
+        }
+
+        function fecharPopup() {
+            document.getElementById("popup-lista").style.display = "none";
+        }
+    </script>
+
+    <div id="popup-lista" class="popup-fundo">
+        <div class="popup">
+            <div class="popup-topo">
+                <h2>Usuários cadastrados</h2>
+                <button class="fechar-popup" onclick="fecharPopup()">×</button>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                        <th>Perfil</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Maria Oliveira</td>
+                        <td>maria@abos.org.br</td>
+                        <td>Administrador</td>
+                        <td><span class="status ok">Ativo</span></td>
+                    </tr>
+                    <tr>
+                        <td>João Pereira</td>
+                        <td>joao@abos.org.br</td>
+                        <td>Voluntário</td>
+                        <td><span class="status ok">Ativo</span></td>
+                    </tr>
+                    <tr>
+                        <td>Ana Souza</td>
+                        <td>ana@abos.org.br</td>
+                        <td>Voluntário</td>
+                        <td><span class="status critico">Inativo</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function abrirPopup() {
+            document.getElementById("popup-lista").style.display = "flex";
+        }
+
+        function fecharPopup() {
+            document.getElementById("popup-lista").style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>

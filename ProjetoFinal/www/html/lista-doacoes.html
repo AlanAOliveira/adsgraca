@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Entradas no Mês - ONG ABOS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside class="menu-lateral">
+            <div class="logo"><img
+                    src="https://www.abos.org.br/wp-content/uploads/2021/01/Favicon-300x300.png"><span>ONG ABOS</span>
+            </div>
+            <p class="subtitulo-logo">Gestão de apoio e doações</p>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="cadastro-usuario.html">Usuários</a></li>
+                <li><a href="cadastro-paciente.html">Pacientes</a></li>
+                <li><a href="cadastro-doador.html">Doadores</a></li>
+                <li class="ativo"><a href="lista-doacoes.html">Doações</a></li>
+                <li><a href="estoque.html">Estoque</a></li>
+                <li><a href="relatorios.html">Relatórios</a></li>
+                <li><a href="#">Sair</a></li>
+            </ul>
+        </aside>
+
+        <main class="conteudo">
+            <section class="topo">
+                <div>
+                    <h1>Entradas no Mês</h1>
+                    <p>Doações recebidas e registradas no estoque.</p>
+                </div>
+                <div class="acoes-topo">
+                    <input id="pesquisa" class="pesquisa" type="text" placeholder="Pesquisar doação">
+                    <button class="botao-secundario" onclick="filtrarDoacoes()">Pesquisar</button>
+                </div>
+            </section>
+
+            <section class="painel">
+                <div class="painel-topo">
+                    <h2>Doações Recebidas</h2>
+                    <button class="botao-secundario" onclick="window.location.href='cadastro-doacao.html'">Registrar
+                        nova doação</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Doador</th>
+                            <th>Item</th>
+                            <th>Quantidade</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-doacoes">
+                        <!-- Rows will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Sample data - used as fallback when API fails
+        const doacoesFallback = [
+            {
+                "id": 1,
+                "nome": "João da Silva(FB)",
+                "alimento": "Arroz",
+                "quantidade": 20,
+                "unidade": "kg",
+                "status": "Registrado",
+                "criado_em": "2026-04-02T10:00:00"
+            },
+            {
+                "id": 2,
+                "nome": "Mercado Esperança(FB)",
+                "alimento": "Leite",
+                "quantidade": 32,
+                "unidade": "un.",
+                "status": "Registrado",
+                "criado_em": "2026-04-08T14:30:00"
+            },
+            {
+                "id": 3,
+                "nome": "Empresa Solidária(FB)",
+                "alimento": "Feijão",
+                "quantidade": 67,
+                "unidade": "kg",
+                "status": "Registrado",
+                "criado_em": "2026-04-15T09:15:00"
+            }
+        ];
+
+        // Active donations list (starts with fallback, gets replaced by API data if successful)
+        let doacoes = [...doacoesFallback];
+
+        // Normalize donation object - handles both API format and fallback format
+        function normalizarDoacao(d) {
+            return {
+                id: d.id || d.id_doacao,
+                data: d.criado_em || d.data_recebimento,
+                nome: d.nome || d.nome_pessoa || '-',
+                alimento: d.alimento || d.tipo || '-',
+                quantidade: d.quantidade || 0,
+                unidade: d.unidade || '',
+                status: d.status || 'Registrado'
+            };
+        }
+
+        async function carregarDoacoes() {
+            try {
+                const response = await fetch('/api/doacoes');
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+
+                const dadosApi = await response.json();
+
+                // Check if API returned an error or empty array
+                if (dadosApi.error) {
+                    throw new Error(dadosApi.error);
+                }
+
+                // Use API data if successful and has items
+                if (Array.isArray(dadosApi) && dadosApi.length > 0) {
+                    doacoes = dadosApi;
+                    console.log('✅ Doações carregadas da API:', doacoes.length);
+                } else {
+                    console.warn('⚠️ API retornou vazio, usando dados de exemplo');
+                    doacoes = [...doacoesFallback];
+                }
+
+                renderizarDoacoes(doacoes);
+
+            } catch (error) {
+                console.error('❌ Erro ao carregar da API:', error.message);
+                console.warn('📋 Usando dados de exemplo (fallback)');
+
+                // Fallback to hardcoded data
+                doacoes = [...doacoesFallback];
+                renderizarDoacoes(doacoes);
+            }
+        }
+
+        // Format date from ISO to dd/mm/yyyy
+        function formatarData(isoString) {
+            if (!isoString) return '-';
+            const data = new Date(isoString);
+            if (isNaN(data)) return '-';
+            return data.toLocaleDateString('pt-BR');
+        }
+        // Render donations into the table
+        function renderizarDoacoes(lista) {
+            const tbody = document.getElementById('tabela-doacoes');
+
+            if (!lista || lista.length === 0) {
+                tbody.innerHTML = `
+            <tr>
+                <td colspan="5" style="text-align: center;">Nenhuma doação encontrada</td>
+            </tr>
+        `;
+                return;
+            }
+
+            tbody.innerHTML = lista.map(d => {
+                const data = d.data_recebimento || d.criado_em;
+                const doador = d.nome_doador || d.nome || 'Doador não informado';
+                const item = d.tipo || d.alimento || '-';
+                const qtd = d.quantidade || 0;
+                const unidade = d.unidade || '';
+                const status = d.status || 'Registrado';
+
+                return `
+            <tr>
+                <td>${formatarData(data)}</td>
+                <td>${doador}</td>
+                <td>${item}</td>
+                <td>${qtd} ${unidade}</td>
+                <td><span class="status ok">${status}</span></td>
+            </tr>
+        `;
+            }).join('');
+        }
+
+
+        // Filter donations by search term
+        function filtrarDoacoes() {
+            const termo = document.getElementById('pesquisa').value.toLowerCase().trim();
+
+            if (!termo) {
+                renderizarDoacoes(doacoes);
+                return;
+            }
+
+            const filtradas = doacoes.filter(d => {
+                const item = normalizarDoacao(d);
+                return (
+                    item.nome.toLowerCase().includes(termo) ||
+                    item.alimento.toLowerCase().includes(termo) ||
+                    item.status.toLowerCase().includes(termo)
+                );
+            });
+
+            renderizarDoacoes(filtradas);
+        }
+
+        // Search on Enter key
+        document.getElementById('pesquisa').addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') filtrarDoacoes();
+        });
+
+        // Load on page open
+        document.addEventListener('DOMContentLoaded', carregarDoacoes);
+    </script>
+</body>
+
+</html>
